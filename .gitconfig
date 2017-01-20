@@ -1,0 +1,7 @@
+[user]
+	name = Loup Théron
+	email = ltheron@octo.com
+[rerere]
+	enabled = true
+[merge]
+	tool = vimdiff
