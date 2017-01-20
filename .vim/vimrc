@@ -1,0 +1,131 @@
+execute pathogen#infect()
+colorscheme Tomorrow-Night
+" set guifont=Menlo\ Regular:h18
+set hidden
+set history=100
+set nowrap
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set smartindent
+set autoindent
+set hlsearch
+set incsearch 
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plugins
+""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Install vim-plug if we don't already have it
+" Credit to github.com/captbaritone
+if empty(glob("~/.vim/autoload/plug.vim"))
+" Ensure all needed directories exist  (Thanks @kapadiamush)
+    execute '!mkdir -p ~/.vim/plugged'
+execute '!mkdir -p ~/.vim/autoload'
+
+" Download the actual plugin manager
+    execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+endif
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-surround'
+" Plug 'tpope/vim-repeat'
+" Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-vinegar'
+" Plug 'kien/ctrlp.vim'
+" Plug 'luochen1990/rainbow'
+Plug 'nanotech/jellybeans.vim'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/syntastic'
+" Plug 'majutsushi/tagbar'
+" Plug 'SirVer/ultisnips'
+" Plug 'honza/vim-snippets'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'pearofducks/ansible-vim'
+" Plug 'mileszs/ack.vim'
+" Plug 'vim-pandoc/vim-pandoc-syntax'
+" Plug 'vim-pandoc/vim-pandoc'
+
+call plug#end()
+
+" Enable filetype detection for plugins and indentation options
+filetype plugin indent on
+
+" Reload a file when it is changed from the outside
+set autoread
+
+" Write the file when we leave the buffer
+set autowrite
+
+" Disable backups, we have source control for that
+set nobackup
+
+" Force encoding to utf-8, for systems where this is not the default (windows
+" comes to mind)
+set encoding=utf-8
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" User interface
+""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Make backspace behave as expected
+set backspace=eol,indent,start
+
+" Set the minimal amount of lignes under and above the cursor
+" Useful for keeping context when moving with j/k
+set scrolloff=5
+
+" Show current mode
+set showmode
+
+" Show command being executed
+set showcmd
+
+" Show line number
+set number
+
+" Always show status line
+set laststatus=2
+
+" Format the status line
+" This status line comes from Pierre Bourdon's vimrc
+set statusline=%f\ %l\|%c\ %m%=%p%%\ (%Y%R)
+
+" Enhance command line completion
+set wildmenu
+
+" Disable bell completely
+set visualbell
+set t_vb=
+
+" Color the column after textwidth, usually the 80th
+if version >= 703
+    set colorcolumn=+1
+endif
+
+" Enables syntax highlighting
+syntax on
+
+" Enable Doxygen highlighting
+let g:load_doxygen_syntax=1
+
+" Allow mouse use in vim
+" set mouse=a
+
+" Briefly show matching braces, parens, etc
+set showmatch
+
+" Enable line wrapping
+set wrap
+
+" Wrap on column 80
+set textwidth=79
+
+" Disable preview window on completion
+set completeopt=menu,longest
+
+" Highlight current line
+set cursorline
